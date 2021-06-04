@@ -1,0 +1,18 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: subscription
+          uri: lb://subscription
+          predicates:
+          - Path=/subscription/**
+#          filters:
+#           - name: CircuitBreaker
+#             args:
+#               name: SUBSCRIBER-SERVICE
+#               fallbackuri: forward:/subsciberServiceFallBack         
+        - id: setplexpackages
+          uri: lb://setplexpackages
+          predicates:
+          - Path=/packages/**     
+            
